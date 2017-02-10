@@ -1,6 +1,4 @@
 import { Component, ChangeDetectionStrategy, Input, OnInit } from "@angular/core";
-import { VendorActions } from "../actions";
-import { AppStore } from "../store";
 import { Router } from "@angular/router";   
 
 @Component({
@@ -10,10 +8,10 @@ import { Router } from "@angular/router";
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class VendorListPageComponent implements OnInit {
-    constructor(private _vendorActions: VendorActions, private _store: AppStore, private _router:Router) { }
+    constructor() { }
 
     ngOnInit() {
-        this._vendorActions.get(); 
+
     }
     
 }

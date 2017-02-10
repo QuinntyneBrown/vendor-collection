@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Http } from "@angular/http";
-import { VendorEvaluation } from "./vendorEvaluation.model";
+import { VendorEvaluation } from "./vendor-evaluation.model";
 import { Observable } from "rxjs";
 
 

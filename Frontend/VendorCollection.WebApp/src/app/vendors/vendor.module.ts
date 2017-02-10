@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from "@angular/common";
 
-import { VendorComponent } from './vendor.component';
-
-const declarables = [VendorComponent];
+const declarables = [];
 const providers = [];
 
 @NgModule({

@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from "@angular/common";
 
-import { EvaluationComponent } from './evaluation.component';
-
-const declarables = [EvaluationComponent];
+const declarables = [];
 const providers = [];
 
 @NgModule({

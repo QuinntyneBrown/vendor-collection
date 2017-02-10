@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from "@angular/common";
 
-import { ProjectComponent } from './project.component';
-
-const declarables = [ProjectComponent];
+const declarables = [];
 const providers = [];
 
 @NgModule({
