@@ -7,8 +7,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>
-    </ProductVersion>
+    <ProductVersion></ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{57CB55DC-1D4F-4711-9C7F-BBDC62EBCFAE}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -23,8 +22,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
+    <NuGetPackageImportStamp></NuGetPackageImportStamp>
     <TypeScriptToolsVersion>2.1</TypeScriptToolsVersion>
     <TypeScriptEmitDecoratorMetadata>true</TypeScriptEmitDecoratorMetadata>
     <TypeScriptModuleKind>commonjs</TypeScriptModuleKind>
@@ -127,7 +125,9 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="src\app\vendor-evaludations\" />
+  </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="src\app\app-routing.module.ts" />
     <TypeScriptCompile Include="src\app\configuration\configuration.module.ts" />
@@ -168,6 +168,10 @@
     <TypeScriptCompile Include="src\app\evaluations\index.ts" />
     <TypeScriptCompile Include="src\app\evaluations\evalutation.model.ts" />
     <TypeScriptCompile Include="src\app\evaluations\evalutation-criteria-item.model.ts" />
+    <TypeScriptCompile Include="src\app\vendor-evaludations\index.ts" />
+    <TypeScriptCompile Include="src\app\vendor-evaludations\vendor-evaluation.model.ts" />
+    <TypeScriptCompile Include="src\app\vendor-evaludations\vendor-evaluation.service.ts" />
+    <TypeScriptCompile Include="src\app\vendor-evaludations\vendor-evaluation.module.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
@@ -197,8 +201,7 @@
           <IISUrl>http://localhost:55679/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
+          <CustomServerUrl></CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
