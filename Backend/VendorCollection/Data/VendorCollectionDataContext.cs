@@ -20,7 +20,8 @@ namespace VendorCollection.Data
         public DbSet<Models.Vendor> Vendors { get; set; }
         public DbSet<Models.User> Users { get; set; }
         public DbSet<Models.Role> Roles { get; set; }
-
+        public DbSet<Models.Evaluation> Evaluations { get; set; }
+        public DbSet<Models.EvaluationCriteriaItem> EvaluationCriteriaItems { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
 

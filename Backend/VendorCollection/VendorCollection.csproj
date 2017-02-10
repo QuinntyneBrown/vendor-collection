@@ -203,7 +203,6 @@
     <Compile Include="Data\VendorCollectionDataContext.cs" />
     <Compile Include="Filters\HandleError.cs" />
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Vendor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\AuthConfiguration.cs" />
     <Compile Include="Security\AuthenticateCommand.cs" />
@@ -238,15 +237,26 @@
     <Compile Include="Utilities\MemoryCache.cs" />
     <Compile Include="Utilities\RedisCache.cs" />
     <Compile Include="Utilities\RedisCacheConfiguration.cs" />
+    <Compile Include="Data\Models\Evaluation.cs" />
+    <Compile Include="Data\Models\EvaluationCriteriaItem.cs" />
+    <Compile Include="Features\Evaluations\AddOrUpdateEvaluationCommand.cs" />
+    <Compile Include="Features\Evaluations\GetEvaluationsQuery.cs" />
+    <Compile Include="Features\Evaluations\GetEvaluationByIdQuery.cs" />
+    <Compile Include="Features\Evaluations\RemoveEvaluationCommand.cs" />
+    <Compile Include="Features\Evaluations\EvaluationApiModel.cs" />
+    <Compile Include="Features\Evaluations\EvaluationController.cs" />
+    <Compile Include="Features\Evaluations\AddOrUpdateEvaluationCriteriaItemCommand.cs" />
+    <Compile Include="Features\Evaluations\GetEvaluationCriteriaItemsQuery.cs" />
+    <Compile Include="Features\Evaluations\GetEvaluationCriteriaItemByIdQuery.cs" />
+    <Compile Include="Features\Evaluations\RemoveEvaluationCriteriaItemCommand.cs" />
+    <Compile Include="Features\Evaluations\EvaluationCriteriaItemApiModel.cs" />
+    <Compile Include="Features\Evaluations\EvaluationCriteriaItemController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
-  <ItemGroup>
-    <Content Include="install-packages.txt" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
