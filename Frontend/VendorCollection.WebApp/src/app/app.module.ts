@@ -3,13 +3,14 @@ import { CommonModule } from '@angular/common';
 import { BrowserModule  } from '@angular/platform-browser';
 import { RouterModule  } from '@angular/router';
 import { HttpModule } from '@angular/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import "./rxjs-extensions";
 
 import { ConfigurationModule } from "./configuration";
 import { CoreModule } from "./core";
 import { EvaluationModule } from "./evaluations";
 import { ProjectModule } from "./projects";
+import { UtilitiesModule } from "./utilities";
 import { VendorEvaluationModule } from "./vendor-evaludations";
 import { VendorModule } from "./vendors";
 
@@ -38,6 +39,7 @@ const providers = [
         CoreModule,
         EvaluationModule,
         ProjectModule,
+        UtilitiesModule,
         VendorEvaluationModule,
         VendorModule,
 
@@ -45,6 +47,7 @@ const providers = [
         HttpModule,
         CommonModule,
         FormsModule,
+        ReactiveFormsModule,
         RouterModule
     ],
     providers: providers,

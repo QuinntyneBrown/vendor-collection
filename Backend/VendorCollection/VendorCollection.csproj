@@ -276,13 +276,20 @@
     <Compile Include="Features\Projects\RemoveProjectCommand.cs" />
     <Compile Include="Features\Projects\ProjectApiModel.cs" />
     <Compile Include="Features\Projects\ProjectController.cs" />
+    <Compile Include="Features\Users\AddOrUpdateUserCommand.cs" />
+    <Compile Include="Features\Users\GetUsersQuery.cs" />
+    <Compile Include="Features\Users\GetUserByIdQuery.cs" />
+    <Compile Include="Features\Users\RemoveUserCommand.cs" />
+    <Compile Include="Features\Users\UserApiModel.cs" />
+    <Compile Include="Features\Users\UserController.cs" />
+    <Compile Include="Features\Users\GetCurrentUserQuery.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Features\Projects\" />
+    <Folder Include="Features\Users\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
