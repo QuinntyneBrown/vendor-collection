@@ -269,13 +269,20 @@
     <Compile Include="Features\VendorEvaluations\RemoveVendorEvaluationCriteriaItemCommand.cs" />
     <Compile Include="Features\VendorEvaluations\VendorEvaluationCriteriaItemApiModel.cs" />
     <Compile Include="Features\VendorEvaluations\VendorEvaluationCriteriaItemController.cs" />
+    <Compile Include="Data\Models\Project.cs" />
+    <Compile Include="Features\Projects\AddOrUpdateProjectCommand.cs" />
+    <Compile Include="Features\Projects\GetProjectsQuery.cs" />
+    <Compile Include="Features\Projects\GetProjectByIdQuery.cs" />
+    <Compile Include="Features\Projects\RemoveProjectCommand.cs" />
+    <Compile Include="Features\Projects\ProjectApiModel.cs" />
+    <Compile Include="Features\Projects\ProjectController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Features\VendorEvaluations\" />
+    <Folder Include="Features\Projects\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

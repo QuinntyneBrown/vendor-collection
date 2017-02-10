@@ -26,7 +26,6 @@ namespace VendorCollection.Security
             public GetClaimsForUserHandler(VendorCollectionDataContext dataContext)
             {
                 _dataContext = dataContext;
-
             }
 
             public async Task<GetClaimsForUserResponse> Handle(GetClaimsForUserRequest message)

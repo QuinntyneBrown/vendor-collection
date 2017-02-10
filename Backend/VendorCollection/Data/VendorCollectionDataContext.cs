@@ -25,6 +25,7 @@ namespace VendorCollection.Data
         public DbSet<EvaluationCriteriaItem> EvaluationCriteriaItems { get; set; }
         public DbSet<VendorEvaluation> VendorEvaluations { get; set; }
         public DbSet<VendorEvaluationCriteriaItem> VendorEvaluationCriteriaItems { get; set; }
+        public DbSet<Project> Projects { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

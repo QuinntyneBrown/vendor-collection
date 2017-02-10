@@ -4,7 +4,7 @@ import { Component, ChangeDetectionStrategy, Input, OnInit, ViewEncapsulation } 
     template: require("./app.component.html"),
     styles: [require("./app.component.scss")],
     selector: "app",
-    changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.Default,
     encapsulation: ViewEncapsulation.None
 })
 export class AppComponent { }
