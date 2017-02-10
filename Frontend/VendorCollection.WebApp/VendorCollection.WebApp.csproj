@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="..\..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -24,6 +25,12 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>2.1</TypeScriptToolsVersion>
+    <TypeScriptEmitDecoratorMetadata>true</TypeScriptEmitDecoratorMetadata>
+    <TypeScriptModuleKind>commonjs</TypeScriptModuleKind>
+    <TypeScriptExperimentalDecorators>True</TypeScriptExperimentalDecorators>
+    <TypeScritModuleResolution>Classic</TypeScritModuleResolution>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -66,7 +73,38 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="index.html" />
     <Content Include="packages.config" />
+    <Content Include="src\app\app.component.html">
+      <DependentUpon>app.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\app.component.scss">
+      <DependentUpon>app.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\core\login-page.component.html" />
+    <Content Include="src\app\vendors\vendor-edit-page.component.html">
+      <DependentUpon>vendor-edit-page.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\vendors\vendor-edit-page.component.scss">
+      <DependentUpon>vendor-edit-page.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\vendors\vendor-list-item.component.html">
+      <DependentUpon>vendor-list-item.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\vendors\vendor-list-item.component.scss">
+      <DependentUpon>vendor-list-item.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\vendors\vendor-list-page.component.html">
+      <DependentUpon>vendor-list-page.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\vendors\vendor-list-page.component.scss">
+      <DependentUpon>vendor-list-page.component.ts</DependentUpon>
+    </Content>
+    <Content Include="webpack.config.js" />
+    <Content Include="package.json" />
+    <Content Include="tsconfig.json" />
+    <Content Include="typings.json" />
+    <Content Include="src\app\core\login-page.component.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -81,13 +119,60 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="src\" />
+    <Folder Include="src\styles\base\" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="src\app\app-routing.module.ts" />
+    <TypeScriptCompile Include="src\app\configuration\configuration.module.ts" />
+    <TypeScriptCompile Include="src\app\configuration\configuration.service.ts" />
+    <TypeScriptCompile Include="src\app\configuration\index.ts" />
+    <TypeScriptCompile Include="src\app\core\auth-guard.service.ts" />
+    <TypeScriptCompile Include="src\app\core\auth.service.ts" />
+    <TypeScriptCompile Include="src\app\core\core.module.ts" />
+    <TypeScriptCompile Include="src\app\core\current-user.service.ts" />
+    <TypeScriptCompile Include="src\app\core\exception.service.ts" />
+    <TypeScriptCompile Include="src\app\core\index.ts" />
+    <TypeScriptCompile Include="src\app\core\login-page.component.ts" />
+    <TypeScriptCompile Include="src\app\core\login-redirect.service.ts" />
+    <TypeScriptCompile Include="src\app\core\user.model.ts" />
+    <TypeScriptCompile Include="src\app\environment.ts" />
+    <TypeScriptCompile Include="src\app\rxjs-extensions.ts" />
+    <TypeScriptCompile Include="src\app\utilities\form-encode.ts" />
+    <TypeScriptCompile Include="src\app\utilities\guid.ts" />
+    <TypeScriptCompile Include="src\app\utilities\in-memory-storage.ts" />
+    <TypeScriptCompile Include="src\app\utilities\index.ts" />
+    <TypeScriptCompile Include="src\app\utilities\oauth-helper.ts" />
+    <TypeScriptCompile Include="src\app\utilities\storage.ts" />
+    <TypeScriptCompile Include="src\app\utilities\utilities.module.ts" />
+    <TypeScriptCompile Include="src\main.ts" />
+    <TypeScriptCompile Include="src\app\app.component.ts" />
+    <TypeScriptCompile Include="src\app\app.module.ts" />
+    <TypeScriptCompile Include="src\app\index.ts" />
+    <TypeScriptCompile Include="src\app\vendors\index.ts" />
+    <TypeScriptCompile Include="src\app\vendors\vendor.model.ts" />
+    <TypeScriptCompile Include="src\app\vendors\vendor.service.ts" />
+    <TypeScriptCompile Include="src\app\vendors\vendor-list-page.component.ts" />
+    <TypeScriptCompile Include="src\app\vendors\vendor-edit-page.component.ts" />
+    <TypeScriptCompile Include="src\app\vendors\vendor-list-item.component.ts" />
+    <TypeScriptCompile Include="src\polyfills.ts" />
+    <TypeScriptCompile Include="src\vendor.ts" />
+    <TypeScriptCompile Include="src\app\vendors\vendor.module.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Backend\VendorCollection\VendorCollection.csproj">
+      <Project>{ba3a0650-a18b-4731-8eaa-f73868320ef7}</Project>
+      <Name>VendorCollection</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ProjectExtensions>
