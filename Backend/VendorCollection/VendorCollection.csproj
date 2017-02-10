@@ -199,6 +199,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApiConfiguration.cs" />
+    <Compile Include="Data\Models\ILoggable.cs" />
     <Compile Include="Filters\WebApiUnityActionFilterProvider.cs" />
     <Compile Include="Data\VendorCollectionDataContext.cs" />
     <Compile Include="Filters\HandleError.cs" />
@@ -251,12 +252,19 @@
     <Compile Include="Features\Evaluations\RemoveEvaluationCriteriaItemCommand.cs" />
     <Compile Include="Features\Evaluations\EvaluationCriteriaItemApiModel.cs" />
     <Compile Include="Features\Evaluations\EvaluationCriteriaItemController.cs" />
+    <Compile Include="Data\Models\VendorEvaluation.cs" />
+    <Compile Include="Data\Models\VendorEvaluationCriteriaItem.cs" />
+    <Compile Include="Data\Models\ProjectManager.cs" />
+    <Compile Include="Data\Models\Developer.cs" />
+    <Compile Include="Data\Models\Employee.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Features\VendorEvaluations\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

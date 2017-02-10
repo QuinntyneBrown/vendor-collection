@@ -7,7 +7,8 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion></ProductVersion>
+    <ProductVersion>
+    </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{57CB55DC-1D4F-4711-9C7F-BBDC62EBCFAE}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -22,7 +23,8 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
-    <NuGetPackageImportStamp></NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
     <TypeScriptToolsVersion>2.1</TypeScriptToolsVersion>
     <TypeScriptEmitDecoratorMetadata>true</TypeScriptEmitDecoratorMetadata>
     <TypeScriptModuleKind>commonjs</TypeScriptModuleKind>
@@ -79,7 +81,12 @@
     <Content Include="src\app\app.component.scss">
       <DependentUpon>app.component.ts</DependentUpon>
     </Content>
-    <Content Include="src\app\core\login-page.component.html" />
+    <Content Include="src\app\core\login-page.component.html">
+      <DependentUpon>login-page.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\core\login-page.component.scss">
+      <DependentUpon>login-page.component.ts</DependentUpon>
+    </Content>
     <Content Include="src\app\vendors\vendor-edit-page.component.html">
       <DependentUpon>vendor-edit-page.component.ts</DependentUpon>
     </Content>
@@ -102,13 +109,17 @@
     <Content Include="package.json" />
     <Content Include="tsconfig.json" />
     <Content Include="typings.json" />
-    <Content Include="src\app\core\login-page.component.scss" />
+    <Content Include="src\styles\base\_all.scss" />
+    <Content Include="src\styles\base\_grid-settings.scss" />
+    <Content Include="src\styles\base\_typography.scss" />
+    <Content Include="src\styles\base\_variables.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="src\styles\base\index.scss" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.config" />
@@ -116,10 +127,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="src\app\evaluations\" />
-    <Folder Include="src\styles\base\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <TypeScriptCompile Include="src\app\app-routing.module.ts" />
     <TypeScriptCompile Include="src\app\configuration\configuration.module.ts" />
@@ -189,7 +197,8 @@
           <IISUrl>http://localhost:55679/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl></CustomServerUrl>
+          <CustomServerUrl>
+          </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>

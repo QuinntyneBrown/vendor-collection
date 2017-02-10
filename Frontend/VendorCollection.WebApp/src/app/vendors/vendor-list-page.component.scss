@@ -1,6 +1,16 @@
-a,
-a:visited,
-a:link {
-    text-decoration:none;
-    color: #000;
+@import "../../styles/base/all";
+
+@media only screen and (min-width: $small-screen) { 
+
+
+}
+
+@media only screen and (min-width: $medium-screen) { 
+
+
+}
+
+@media only screen and (min-width: $large-screen) { 
+
+
 }
