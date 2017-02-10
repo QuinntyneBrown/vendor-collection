@@ -257,6 +257,18 @@
     <Compile Include="Data\Models\ProjectManager.cs" />
     <Compile Include="Data\Models\Developer.cs" />
     <Compile Include="Data\Models\Employee.cs" />
+    <Compile Include="Features\VendorEvaluations\AddOrUpdateVendorEvaluationCommand.cs" />
+    <Compile Include="Features\VendorEvaluations\GetVendorEvaluationsQuery.cs" />
+    <Compile Include="Features\VendorEvaluations\GetVendorEvaluationByIdQuery.cs" />
+    <Compile Include="Features\VendorEvaluations\RemoveVendorEvaluationCommand.cs" />
+    <Compile Include="Features\VendorEvaluations\VendorEvaluationApiModel.cs" />
+    <Compile Include="Features\VendorEvaluations\VendorEvaluationController.cs" />
+    <Compile Include="Features\VendorEvaluations\AddOrUpdateVendorEvaluationCriteriaItemCommand.cs" />
+    <Compile Include="Features\VendorEvaluations\GetVendorEvaluationCriteriaItemsQuery.cs" />
+    <Compile Include="Features\VendorEvaluations\GetVendorEvaluationCriteriaItemByIdQuery.cs" />
+    <Compile Include="Features\VendorEvaluations\RemoveVendorEvaluationCriteriaItemCommand.cs" />
+    <Compile Include="Features\VendorEvaluations\VendorEvaluationCriteriaItemApiModel.cs" />
+    <Compile Include="Features\VendorEvaluations\VendorEvaluationCriteriaItemController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

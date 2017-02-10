@@ -1,4 +1,5 @@
 using System.Data.Entity;
+using VendorCollection.Data.Models;
 
 namespace VendorCollection.Data
 {
@@ -17,11 +18,14 @@ namespace VendorCollection.Data
             Configuration.AutoDetectChangesEnabled = true;
         }
 
-        public DbSet<Models.Vendor> Vendors { get; set; }
-        public DbSet<Models.User> Users { get; set; }
-        public DbSet<Models.Role> Roles { get; set; }
-        public DbSet<Models.Evaluation> Evaluations { get; set; }
-        public DbSet<Models.EvaluationCriteriaItem> EvaluationCriteriaItems { get; set; }
+        public DbSet<Vendor> Vendors { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Role> Roles { get; set; }
+        public DbSet<Evaluation> Evaluations { get; set; }
+        public DbSet<EvaluationCriteriaItem> EvaluationCriteriaItems { get; set; }
+        public DbSet<VendorEvaluation> VendorEvaluations { get; set; }
+        public DbSet<VendorEvaluationCriteriaItem> VendorEvaluationCriteriaItems { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
 
