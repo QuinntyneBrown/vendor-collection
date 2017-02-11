@@ -5,4 +5,5 @@ export * from "./current-user.service";
 export * from "./exception.service";
 export * from "./login-page.component";
 export * from "./login-redirect.service";
+export * from "./oauth-http.service";
 export * from "./user.model";

@@ -4,6 +4,7 @@ import { Http, Headers } from "@angular/http";
 import { Observable } from "rxjs";
 import { Storage, formEncode, OAuthHelper } from "../utilities"
 import { ConfigurationService } from "../configuration";
+import { OAuthHttpService } from "./oauth-http.service";
 
 @Injectable()
 export class AuthService {
