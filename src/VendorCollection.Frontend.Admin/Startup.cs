@@ -2,6 +2,7 @@ using Owin;
 using System.Web.Http;
 using Microsoft.Owin;
 using Unity.WebApi;
+using VendorCollection;
 
 [assembly: OwinStartup(typeof(VendorCollection.Frontend.Startup))]
 

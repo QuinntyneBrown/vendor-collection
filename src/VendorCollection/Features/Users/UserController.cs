@@ -26,7 +26,8 @@ namespace VendorCollection.Features.Users
         [ResponseType(typeof(AddOrUpdateUserResponse))]
         public async Task<IHttpActionResult> Add(AddOrUpdateUserRequest request)
         {
-            request.TenantId = (await _userManager.GetUserAsync(User)).TenantId;
+            var user = await _userManager.GetUserAsync(User);
+            request.TenantId = user.TenantId;
             return Ok(await _mediator.Send(request));
         }
 
@@ -71,12 +72,12 @@ namespace VendorCollection.Features.Users
         [HttpGet]
         [AllowAnonymous]
         [ResponseType(typeof(GetUserByUsernameResponse))]
-        public async Task<IHttpActionResult> Current([FromUri]GetUserByUsernameRequest request)
+        public async Task<IHttpActionResult> Current()
         {
             if (!User.Identity.IsAuthenticated)
                 return Ok();
 
-            request.Username = User.Identity.Name;
+            var request = new GetUserByUsernameRequest() { Username = User.Identity.Name };            
             request.TenantId = (await _userManager.GetUserAsync(User)).TenantId;
             
             return Ok(await _mediator.Send(request));

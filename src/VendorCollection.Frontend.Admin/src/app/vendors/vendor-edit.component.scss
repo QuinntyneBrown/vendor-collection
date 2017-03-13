@@ -1,4 +1,4 @@
-@import "../../styles/base/index";
+@import "../../styles/base/_all";
 
 ce-vendor-edit {
 	@extend .view-card;
@@ -6,6 +6,18 @@ ce-vendor-edit {
 	h2 {
 		cursor:pointer;
 	}
+
+    input[type="checkbox"] {
+        display:block;
+        width:25px;
+    } 
+
+    .checkbox-field {
+        input[type="checkbox"] {
+            display:inline-block;
+            width:25px;
+        }
+    }
 }
 
 

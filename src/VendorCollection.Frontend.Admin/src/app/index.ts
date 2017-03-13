@@ -1,5 +1,7 @@
+export * from "./documents";
 export * from "./pagination";
 export * from "./router";
+export * from "./selection-criterion";
 export * from "./shared";
 export * from "./users";
 export * from "./utilities";

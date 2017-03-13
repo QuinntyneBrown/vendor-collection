@@ -30,7 +30,11 @@ namespace VendorCollection.Features.Vendors
             public async Task<GetVendorsResponse> Handle(GetVendorsRequest request)
             {
                 var vendors = await _context.Vendors
-				    .Where( x => x.TenantId == request.TenantId )
+                    .Include(x => x.VendorDocuments)
+                    .Include("VendorDocuments.Document")
+                    .Include(x => x.VendorSelectionCriterion)
+                    .Include("VendorSelectionCriterion.SelectionCriteria")
+                    .Where( x => x.TenantId == request.TenantId )
                     .ToListAsync();
 
                 return new GetVendorsResponse()

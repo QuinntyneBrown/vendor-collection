@@ -6,8 +6,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>
-    </ProductVersion>
+    <ProductVersion></ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{F6286226-21E2-4BEB-B76D-F9E2D650E02A}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -22,8 +21,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
+    <NuGetPackageImportStamp></NuGetPackageImportStamp>
     <TypeScriptToolsVersion>2.2</TypeScriptToolsVersion>
     <TypeScriptEmitDecoratorMetadata>true</TypeScriptEmitDecoratorMetadata>
     <TypeScriptModuleKind>commonjs</TypeScriptModuleKind>
@@ -211,6 +209,42 @@
     <Content Include="src\app\app.component.scss">
       <DependentUpon>app.component.ts</DependentUpon>
     </Content>
+    <Content Include="src\app\documents\document-edit.component.html">
+      <DependentUpon>document-edit.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\documents\document-edit.component.scss">
+      <DependentUpon>document-edit.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\documents\document-item.component.html">
+      <DependentUpon>document-item.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\documents\document-item.component.scss">
+      <DependentUpon>document-item.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\documents\document-list.component.html">
+      <DependentUpon>document-list.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\documents\document-list.component.scss">
+      <DependentUpon>document-list.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\selection-criterion\selection-criteria-edit.component.html">
+      <DependentUpon>selection-criteria-edit.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\selection-criterion\selection-criteria-edit.component.scss">
+      <DependentUpon>selection-criteria-edit.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\selection-criterion\selection-criteria-item.component.html">
+      <DependentUpon>selection-criteria-item.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\selection-criterion\selection-criteria-item.component.scss">
+      <DependentUpon>selection-criteria-item.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\selection-criterion\selection-criteria-list.component.html">
+      <DependentUpon>selection-criteria-list.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\selection-criterion\selection-criteria-list.component.scss">
+      <DependentUpon>selection-criteria-list.component.ts</DependentUpon>
+    </Content>
     <Content Include="src\app\shared\button.component.html">
       <DependentUpon>button.component.ts</DependentUpon>
     </Content>
@@ -295,6 +329,24 @@
     <Content Include="src\app\users\users.component.scss">
       <DependentUpon>users.component.ts</DependentUpon>
     </Content>
+    <Content Include="src\app\vendors\vendor-edit.component.html">
+      <DependentUpon>vendor-edit.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\vendors\vendor-edit.component.scss">
+      <DependentUpon>vendor-edit.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\vendors\vendor-item.component.html">
+      <DependentUpon>vendor-item.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\vendors\vendor-item.component.scss">
+      <DependentUpon>vendor-item.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\vendors\vendor-list.component.html">
+      <DependentUpon>vendor-list.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\vendors\vendor-list.component.scss">
+      <DependentUpon>vendor-list.component.ts</DependentUpon>
+    </Content>
     <Content Include="webpack.config.js" />
     <Content Include="package.json" />
     <Content Include="tsconfig.json" />
@@ -308,12 +360,6 @@
     <Content Include="src\styles\base\entity-list.scss" />
     <Content Include="src\styles\base\select.scss" />
     <Content Include="src\styles\base\view-card.scss" />
-    <Content Include="src\app\vendors\vendor-edit.component.scss" />
-    <Content Include="src\app\vendors\vendor-edit.component.html" />
-    <Content Include="src\app\vendors\vendor-list.component.scss" />
-    <Content Include="src\app\vendors\vendor-list.component.html" />
-    <Content Include="src\app\vendors\vendor-item.component.scss" />
-    <Content Include="src\app\vendors\vendor-item.component.html" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.config" />
@@ -339,8 +385,7 @@
           <IISUrl>http://localhost:64410/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
+          <CustomServerUrl></CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
@@ -453,9 +498,29 @@
     <TypeScriptCompile Include="src\app\vendors\vendor-edit.component.ts" />
     <TypeScriptCompile Include="src\app\vendors\vendor-list.component.ts" />
     <TypeScriptCompile Include="src\app\vendors\vendor-item.component.ts" />
+    <TypeScriptCompile Include="src\app\selection-criterion\index.ts" />
+    <TypeScriptCompile Include="src\app\selection-criterion\selection-criteria.model.ts" />
+    <TypeScriptCompile Include="src\app\selection-criterion\selection-criteria.service.ts" />
+    <TypeScriptCompile Include="src\app\selection-criterion\selection-criteria-edit.component.ts" />
+    <TypeScriptCompile Include="src\app\selection-criterion\selection-criteria-list.component.ts" />
+    <TypeScriptCompile Include="src\app\selection-criterion\selection-criteria-item.component.ts" />
+    <TypeScriptCompile Include="src\app\documents\index.ts" />
+    <TypeScriptCompile Include="src\app\documents\document.model.ts" />
+    <TypeScriptCompile Include="src\app\documents\document.service.ts" />
+    <TypeScriptCompile Include="src\app\documents\document-list.component.ts" />
+    <TypeScriptCompile Include="src\app\documents\document-edit.component.ts" />
+    <TypeScriptCompile Include="src\app\documents\document-item.component.ts" />
+    <TypeScriptCompile Include="src\app\vendors\vendor-document.model.ts" />
+    <TypeScriptCompile Include="src\app\vendors\vendor-selection-criteria.model.ts" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VendorCollection\VendorCollection.csproj">
+      <Project>{A8711BC3-F343-4E44-B045-349942559795}</Project>
+      <Name>VendorCollection</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
 </Project>

@@ -14,6 +14,7 @@ namespace VendorCollection.Features.Vendors
             var model = new TModel();
             model.Id = vendor.Id;
             model.TenantId = vendor.TenantId;
+            model.Name = vendor.Name;
             return model;
         }
 

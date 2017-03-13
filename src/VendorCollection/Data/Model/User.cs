@@ -13,7 +13,7 @@ namespace VendorCollection.Data.Model
         public int Id { get; set; }
         [ForeignKey("Tenant")]
         public int? TenantId { get; set; }
-        [Index("NameIndex", IsUnique = true)]
+        [Index("NameIndex", IsUnique = false)]
         [Column(TypeName = "VARCHAR")]
         [StringLength(MaxStringLength)]
         public string Name { get; set; }

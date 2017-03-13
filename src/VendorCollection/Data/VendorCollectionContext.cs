@@ -10,11 +10,13 @@ namespace VendorCollection.Data
 {
     public interface IVendorCollectionContext
     {
+        DbSet<Document> Documents { get; set; }
         DbSet<User> Users { get; set; }
         DbSet<Role> Roles { get; set; }
+        DbSet<SelectionCriteria> SelectionCriterion { get; set; }
         DbSet<Tenant> Tenants { get; set; }
         DbSet<Vendor> Vendors { get; set; }
-
+        
         Task<int> SaveChangesAsync();
     }
 
@@ -32,7 +34,9 @@ namespace VendorCollection.Data
         public DbSet<Role> Roles { get; set; }
         public DbSet<Tenant> Tenants { get; set; }
         public DbSet<Vendor> Vendors { get; set; }
-
+        public DbSet<SelectionCriteria> SelectionCriterion { get; set; }
+        public DbSet<Document> Documents { get; set; }
+        
         public override int SaveChanges()
         {
             UpdateLoggableEntries();
@@ -76,6 +80,4 @@ namespace VendorCollection.Data
             modelBuilder.Conventions.Add(convention);
         }
     }
-
-    
 }

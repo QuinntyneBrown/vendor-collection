@@ -230,9 +230,26 @@
     <Compile Include="Features\Vendors\RemoveVendorCommand.cs" />
     <Compile Include="Features\Vendors\VendorApiModel.cs" />
     <Compile Include="Features\Vendors\VendorController.cs" />
+    <Compile Include="Data\Model\VendorSelectionCriteria.cs" />
+    <Compile Include="Data\Model\SelectionCriteria.cs" />
+    <Compile Include="Features\SelectionCriterion\AddOrUpdateSelectionCriteriaCommand.cs" />
+    <Compile Include="Features\SelectionCriterion\GetSelectionCriterionQuery.cs" />
+    <Compile Include="Features\SelectionCriterion\GetSelectionCriteriaByIdQuery.cs" />
+    <Compile Include="Features\SelectionCriterion\RemoveSelectionCriteriaCommand.cs" />
+    <Compile Include="Features\SelectionCriterion\SelectionCriteriaApiModel.cs" />
+    <Compile Include="Features\SelectionCriterion\SelectionCriteriaController.cs" />
+    <Compile Include="Data\Model\VendorDocument.cs" />
+    <Compile Include="Data\Model\Document.cs" />
+    <Compile Include="Features\Documents\AddOrUpdateDocumentCommand.cs" />
+    <Compile Include="Features\Documents\GetDocumentsQuery.cs" />
+    <Compile Include="Features\Documents\GetDocumentByIdQuery.cs" />
+    <Compile Include="Features\Documents\RemoveDocumentCommand.cs" />
+    <Compile Include="Features\Documents\DocumentApiModel.cs" />
+    <Compile Include="Features\Documents\DocumentController.cs" />
+    <Compile Include="Features\Vendors\VendorSelectionCriteriaApiModel.cs" />
+    <Compile Include="Features\Vendors\VendorDocumentApiModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Features\Vendors\" />
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>

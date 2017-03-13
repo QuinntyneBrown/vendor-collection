@@ -42,9 +42,9 @@ namespace VendorCollection.Features.Vendors
         [AllowAnonymous]
         [HttpGet]
         [ResponseType(typeof(GetVendorsResponse))]
-        public async Task<IHttpActionResult> Get([FromUri]GetVendorsQuery.GetVendorsRequest request)
+        public async Task<IHttpActionResult> Get()
         {
-            request.TenantId = (await _userManager.GetUserAsync(User)).TenantId;
+            var request = new GetVendorsRequest() { TenantId = (await _userManager.GetUserAsync(User)).TenantId };
             return Ok(await _mediator.Send(request));
         }
 
