@@ -1,0 +1,15 @@
+@import "../../styles/base/_all";
+
+ce-vendor-selection-criteria-edit {
+    input[type="checkbox"] {
+        display:block;
+        width:25px;
+    } 
+
+    .checkbox-field {
+        input[type="checkbox"] {
+            display:inline-block;
+            width:25px;
+        }
+    }
+}

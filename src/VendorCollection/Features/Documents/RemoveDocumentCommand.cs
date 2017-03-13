@@ -1,11 +1,8 @@
 using MediatR;
-using VendorCollection.Data;
-using VendorCollection.Data.Model;
-using VendorCollection.Features.Core;
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using System.Linq;
 using System.Data.Entity;
+using VendorCollection.Data;
+using VendorCollection.Features.Core;
 
 namespace VendorCollection.Features.Documents
 {

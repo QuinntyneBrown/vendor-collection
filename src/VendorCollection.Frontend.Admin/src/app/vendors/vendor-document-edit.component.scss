@@ -1,0 +1,14 @@
+@import "../../styles/base/_all";
+
+ce-vendor-document-edit {
+    display:block;
+    width:calc(100%-30px);
+    background-color:aliceblue;
+    padding:15px;
+
+    ce-button {
+        background-color:#FFF;
+        padding-left:10px;
+        padding-right:10px;
+    }
+}

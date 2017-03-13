@@ -42,7 +42,5 @@ namespace VendorCollection.Features.Documents
             private readonly VendorCollectionContext _context;
             private readonly ICache _cache;
         }
-
     }
-
 }

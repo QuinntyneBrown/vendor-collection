@@ -50,12 +50,16 @@ export class VendorEditComponent extends HTMLElement {
         const selectionCriterion = results[1] as Array<SelectionCriteria>;
 
         for (let i = 0; i < documents.length; i++) {
-            var el = createElement(`<div class="checkbox-field"><input type="checkbox" /><span>${documents[i].name}</span></div>`);
+            let el = document.createElement(`ce-vendor-document-edit`);
+            el.setAttribute("document", JSON.stringify(documents[i]));
+            el.setAttribute("vendor-document", null);
             this._documentsTabElement.appendChild(el);
         }
 
         for (let i = 0; i < selectionCriterion.length; i++) {
-            var el = createElement(`<div class="checkbox-field"><input type="checkbox" /><span>${selectionCriterion[i].name}</span></div>`);
+            let el = document.createElement(`ce-vendor-selection-criteria-edit`);
+            el.setAttribute("selection-criteria", JSON.stringify(selectionCriterion[i]));
+            el.setAttribute("vendor-selection-criteria", null);
             this._evaluationTabElement.appendChild(el);
         }
 

@@ -329,6 +329,12 @@
     <Content Include="src\app\users\users.component.scss">
       <DependentUpon>users.component.ts</DependentUpon>
     </Content>
+    <Content Include="src\app\vendors\vendor-document-edit.component.html">
+      <DependentUpon>vendor-document-edit.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\vendors\vendor-document-edit.component.scss">
+      <DependentUpon>vendor-document-edit.component.ts</DependentUpon>
+    </Content>
     <Content Include="src\app\vendors\vendor-edit.component.html">
       <DependentUpon>vendor-edit.component.ts</DependentUpon>
     </Content>
@@ -346,6 +352,12 @@
     </Content>
     <Content Include="src\app\vendors\vendor-list.component.scss">
       <DependentUpon>vendor-list.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\vendors\vendor-selection-criteria-edit.component.html">
+      <DependentUpon>vendor-selection-criteria-edit.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\vendors\vendor-selection-criteria-edit.component.scss">
+      <DependentUpon>vendor-selection-criteria-edit.component.ts</DependentUpon>
     </Content>
     <Content Include="webpack.config.js" />
     <Content Include="package.json" />
@@ -488,6 +500,7 @@
     <TypeScriptCompile Include="src\app\users\user.model.ts" />
     <TypeScriptCompile Include="src\app\users\user.service.ts" />
     <TypeScriptCompile Include="src\app\users\users.component.ts" />
+    <TypeScriptCompile Include="src\app\vendors\vendor.actions.ts" />
     <TypeScriptCompile Include="src\custom-typings.d.ts" />
     <TypeScriptCompile Include="src\main.ts" />
     <TypeScriptCompile Include="src\app\app-router-outlet.component.ts" />
@@ -512,6 +525,8 @@
     <TypeScriptCompile Include="src\app\documents\document-item.component.ts" />
     <TypeScriptCompile Include="src\app\vendors\vendor-document.model.ts" />
     <TypeScriptCompile Include="src\app\vendors\vendor-selection-criteria.model.ts" />
+    <TypeScriptCompile Include="src\app\vendors\vendor-document-edit.component.ts" />
+    <TypeScriptCompile Include="src\app\vendors\vendor-selection-criteria-edit.component.ts" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

@@ -1,3 +1,4 @@
+using System;
 using VendorCollection.Data.Model;
 using VendorCollection.Features.Documents;
 
@@ -8,6 +9,7 @@ namespace VendorCollection.Features.Vendors
         public int Id { get; set; }
         public int? TenantId { get; set; }
         public string Name { get; set; }
+        public DateTime? CompletionDate { get; set; }
         public DocumentApiModel Document { get; set; }
         
         public static TModel FromVendorDocument<TModel>(VendorDocument vendorDocument) where
@@ -16,6 +18,7 @@ namespace VendorCollection.Features.Vendors
             var model = new TModel();
             model.Id = vendorDocument.Id;
             model.TenantId = vendorDocument.TenantId;
+            model.CompletionDate = vendorDocument.CompletionDate;
             model.Document = DocumentApiModel.FromDocument(vendorDocument.Document);
             return model;
         }
