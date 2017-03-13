@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="header-left">
+        <h1>Vendor Collection</h1>
+        <ce-link routesegments='["vendor","list"]' route-name="vendor-list" auth-required>vendors</ce-link>
+    </div>
+    <div class="header-right">
+        <ce-link routesegments='["login"]' class="logout" auth-required>logout</ce-link>
+        <ce-link routesegments='["login"]' class="login" anonymous-required>login</ce-link>
+        <ce-link routesegments='["user-settings"]' class="settings" auth-required>settings</ce-link>
+        <ce-link routesegments='["register"]' class="register" anonymous-required>register</ce-link>
+    </div>
+</div>
+
