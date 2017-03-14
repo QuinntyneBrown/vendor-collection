@@ -76,6 +76,7 @@ namespace VendorCollection.Data
                         m.ToTable("UserRoles");
                     });
 
+
             var convention = new AttributeToTableAnnotationConvention<SoftDeleteAttribute, string>(
                 "SoftDeleteColumnName",
                 (type, attributes) => attributes.Single().ColumnName);

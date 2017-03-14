@@ -13,6 +13,9 @@ namespace VendorCollection.Data.Model
         [ForeignKey("Tenant")]
         public int? TenantId { get; set; }
 
+        [ForeignKey("Vendor")]
+        public int? VendorId { get; set; }
+
         [Index("NameIndex", IsUnique = false)]
         [Column(TypeName = "VARCHAR")]
         public string Name { get; set; }
@@ -41,6 +44,8 @@ namespace VendorCollection.Data.Model
 
         public bool IsDeleted { get; set; }
 
-		public virtual Tenant Tenant { get; set; }
+ 		public virtual Tenant Tenant { get; set; }
+
+        public virtual Vendor Vendor { get; set; }
     }
 }

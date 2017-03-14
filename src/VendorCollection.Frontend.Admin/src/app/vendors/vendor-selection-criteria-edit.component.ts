@@ -10,7 +10,7 @@ const styles = require("./vendor-selection-criteria-edit.component.scss");
 export class VendorSelectionCriteriaEditComponent extends HTMLElement {
     constructor() {
         super();
-        this.onCheck = this.onCheck.bind(this);
+        this.onAddOrUpdateClick = this.onAddOrUpdateClick.bind(this);
     }
 
     static get observedAttributes() {

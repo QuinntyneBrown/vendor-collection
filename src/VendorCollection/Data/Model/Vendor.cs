@@ -41,6 +41,7 @@ namespace VendorCollection.Data.Model
 
 		public virtual Tenant Tenant { get; set; }
 
+        public ICollection<Contact> Contacts { get; set; } = new HashSet<Contact>();
         public ICollection<VendorSelectionCriteria> VendorSelectionCriterion { get; set; } = new HashSet<VendorSelectionCriteria>();
         public ICollection<VendorDocument> VendorDocuments { get; set; } = new HashSet<VendorDocument>();
     }

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using VendorCollection.Data.Model;
 using System.Linq;
+using VendorCollection.Features.Contacts;
 
 namespace VendorCollection.Features.Vendors
 {
@@ -11,7 +12,7 @@ namespace VendorCollection.Features.Vendors
         public string Name { get; set; }
         public ICollection<VendorDocumentApiModel> VendorDocuments { get; set; } = new HashSet<VendorDocumentApiModel>();
         public ICollection<VendorSelectionCriteriaApiModel> VendorSelectionCriterion { get; set; } = new HashSet<VendorSelectionCriteriaApiModel>();
-
+        public ICollection<ContactApiModel> Contacts { get; set; } = new HashSet<ContactApiModel>();
         public static TModel FromVendor<TModel>(Vendor vendor) where
             TModel : VendorApiModel, new()
         {
@@ -21,6 +22,8 @@ namespace VendorCollection.Features.Vendors
             model.Name = vendor.Name;
             model.VendorDocuments = vendor.VendorDocuments.Select(x => VendorDocumentApiModel.FromVendorDocument(x)).ToList();
             model.VendorSelectionCriterion = vendor.VendorSelectionCriterion.Select(x => VendorSelectionCriteriaApiModel.FromVendorSelectionCriteria(x)).ToList();
+            model.Contacts = vendor.Contacts.Select(x => ContactApiModel.FromContact(x)).ToList();
+
             return model;
         }
 

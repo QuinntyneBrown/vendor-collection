@@ -32,7 +32,13 @@ namespace VendorCollection.Features.Vendors
             {                
                 return new GetVendorByIdResponse()
                 {
-                    Vendor = VendorApiModel.FromVendor(await _context.Vendors.SingleAsync(x=>x.Id == request.Id && x.TenantId == request.TenantId))
+                    Vendor = VendorApiModel.FromVendor(await _context.Vendors
+                    .Include(x => x.VendorDocuments)
+                    .Include("VendorDocuments.Document")
+                    .Include(x => x.VendorSelectionCriterion)
+                    .Include("VendorSelectionCriterion.SelectionCriteria")
+                    .Include(x => x.Contacts)
+                    .SingleAsync(x=>x.Id == request.Id && x.TenantId == request.TenantId))
                 };
             }
 

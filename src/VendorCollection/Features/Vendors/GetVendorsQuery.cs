@@ -34,6 +34,7 @@ namespace VendorCollection.Features.Vendors
                     .Include("VendorDocuments.Document")
                     .Include(x => x.VendorSelectionCriterion)
                     .Include("VendorSelectionCriterion.SelectionCriteria")
+                    .Include(x=>x.Contacts)
                     .Where( x => x.TenantId == request.TenantId )
                     .ToListAsync();
 
