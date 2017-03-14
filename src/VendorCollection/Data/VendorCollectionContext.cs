@@ -16,7 +16,9 @@ namespace VendorCollection.Data
         DbSet<SelectionCriteria> SelectionCriterion { get; set; }
         DbSet<Tenant> Tenants { get; set; }
         DbSet<Vendor> Vendors { get; set; }
-        
+        DbSet<Contact> Contacts { get; set; }
+
+
         Task<int> SaveChangesAsync();
     }
 
@@ -36,7 +38,8 @@ namespace VendorCollection.Data
         public DbSet<Vendor> Vendors { get; set; }
         public DbSet<SelectionCriteria> SelectionCriterion { get; set; }
         public DbSet<Document> Documents { get; set; }
-        
+        public DbSet<Contact> Contacts { get; set; }
+
         public override int SaveChanges()
         {
             UpdateLoggableEntries();

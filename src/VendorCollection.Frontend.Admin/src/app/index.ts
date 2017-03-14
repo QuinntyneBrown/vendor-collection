@@ -1,3 +1,4 @@
+export * from "./contacts";
 export * from "./documents";
 export * from "./pagination";
 export * from "./router";

@@ -1,16 +1,13 @@
 using System;
+using System.Collections.Generic;
 using VendorCollection.Data.Helpers;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-using static VendorCollection.Constants;
-using System.Collections.Generic;
 
 namespace VendorCollection.Data.Model
 {
     [SoftDelete("IsDeleted")]
-    public class Vendor: ILoggable
+    public class Contact: ILoggable
     {
-        [Key]
         public int Id { get; set; }
 
         [ForeignKey("Tenant")]
@@ -18,16 +15,21 @@ namespace VendorCollection.Data.Model
 
         [Index("NameIndex", IsUnique = false)]
         [Column(TypeName = "VARCHAR")]
-        [StringLength(MaxStringLength)]
         public string Name { get; set; }
 
+        public string Firstname { get; set; }
+
+        public string Lastname { get; set; }
+
+        public string Email { get; set; }
+
+        public string Twitter { get; set; }
+
+        public string LinkedIn { get; set; }
+
+        public string Mobile { get; set; }
+
         public string PhoneNumber { get; set; }
-
-        public string Street { get; set; }
-
-        public string StateProvince { get; set;  }
-
-        public string PostalZipCode { get; set; }
 
         public DateTime CreatedOn { get; set; }
 
@@ -40,8 +42,5 @@ namespace VendorCollection.Data.Model
         public bool IsDeleted { get; set; }
 
 		public virtual Tenant Tenant { get; set; }
-
-        public ICollection<VendorSelectionCriteria> VendorSelectionCriterion { get; set; } = new HashSet<VendorSelectionCriteria>();
-        public ICollection<VendorDocument> VendorDocuments { get; set; } = new HashSet<VendorDocument>();
     }
 }

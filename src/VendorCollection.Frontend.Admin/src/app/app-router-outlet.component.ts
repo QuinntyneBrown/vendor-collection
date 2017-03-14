@@ -23,6 +23,10 @@ export class AppRouterOutletComponent extends RouterOutlet {
             { path: "/document/create", name: "document-edit", authRequired: true },
             { path: "/document/list", name: "document-list", authRequired: true },
 
+            { path: "/contact/edit/:contactId", name: "contact-edit", authRequired: true },
+            { path: "/contact/create", name: "contact-edit", authRequired: true },
+            { path: "/contact/list", name: "contact-list", authRequired: true },
+
             { path: "/login", name: "login" },
             { path: "/error", name: "error" },
             { path: "*", name: "not-found" }

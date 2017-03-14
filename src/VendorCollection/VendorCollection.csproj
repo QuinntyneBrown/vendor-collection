@@ -248,8 +248,16 @@
     <Compile Include="Features\Documents\DocumentController.cs" />
     <Compile Include="Features\Vendors\VendorSelectionCriteriaApiModel.cs" />
     <Compile Include="Features\Vendors\VendorDocumentApiModel.cs" />
+    <Compile Include="Data\Model\Contact.cs" />
+    <Compile Include="Features\Contacts\AddOrUpdateContactCommand.cs" />
+    <Compile Include="Features\Contacts\GetContactsQuery.cs" />
+    <Compile Include="Features\Contacts\GetContactByIdQuery.cs" />
+    <Compile Include="Features\Contacts\RemoveContactCommand.cs" />
+    <Compile Include="Features\Contacts\ContactApiModel.cs" />
+    <Compile Include="Features\Contacts\ContactController.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Features\Contacts\" />
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>

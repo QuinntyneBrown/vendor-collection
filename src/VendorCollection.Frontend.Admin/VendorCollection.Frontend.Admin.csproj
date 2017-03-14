@@ -6,8 +6,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>
-    </ProductVersion>
+    <ProductVersion></ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{F6286226-21E2-4BEB-B76D-F9E2D650E02A}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -22,8 +21,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
+    <NuGetPackageImportStamp></NuGetPackageImportStamp>
     <TypeScriptToolsVersion>2.2</TypeScriptToolsVersion>
     <TypeScriptEmitDecoratorMetadata>true</TypeScriptEmitDecoratorMetadata>
     <TypeScriptModuleKind>commonjs</TypeScriptModuleKind>
@@ -374,6 +372,12 @@
     <Content Include="src\styles\base\entity-list.scss" />
     <Content Include="src\styles\base\select.scss" />
     <Content Include="src\styles\base\view-card.scss" />
+    <Content Include="src\app\contacts\contact-list.component.scss" />
+    <Content Include="src\app\contacts\contact-list.component.html" />
+    <Content Include="src\app\contacts\contact-edit.component.scss" />
+    <Content Include="src\app\contacts\contact-edit.component.html" />
+    <Content Include="src\app\contacts\contact-item.component.scss" />
+    <Content Include="src\app\contacts\contact-item.component.html" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.config" />
@@ -399,8 +403,7 @@
           <IISUrl>http://localhost:64410/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
+          <CustomServerUrl></CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
@@ -530,9 +533,16 @@
     <TypeScriptCompile Include="src\app\vendors\vendor-selection-criteria.model.ts" />
     <TypeScriptCompile Include="src\app\vendors\vendor-document-edit.component.ts" />
     <TypeScriptCompile Include="src\app\vendors\vendor-selection-criteria-edit.component.ts" />
+    <TypeScriptCompile Include="src\app\contacts\contact-list.component.ts" />
+    <TypeScriptCompile Include="src\app\contacts\contact-edit.component.ts" />
+    <TypeScriptCompile Include="src\app\contacts\contact-item.component.ts" />
+    <TypeScriptCompile Include="src\app\contacts\contact.service.ts" />
+    <TypeScriptCompile Include="src\app\contacts\index.ts" />
+    <TypeScriptCompile Include="src\app\contacts\contact.model.ts" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
+    <Folder Include="src\app\contacts\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\VendorCollection\VendorCollection.csproj">
