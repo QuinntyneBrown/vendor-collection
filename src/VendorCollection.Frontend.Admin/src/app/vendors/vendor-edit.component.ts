@@ -4,8 +4,8 @@ import { EditorComponent, tabsEvents } from "../shared";
 import { Router } from "../router";
 import { SelectionCriteriaService, SelectionCriteria } from "../selection-criterion";
 import { DocumentService, Document } from "../documents";
-import { createElement } from "../utilities";
-import { vendorActions } from "./vendor.actions";
+import { createElement, addOrUpdate } from "../utilities";
+import { vendorActions, VendorDocumentAddOrUpdateEvent, VendorSelectionCriteriaAddOrUpdateEvent } from "./vendor.actions";
 
 
 const template = require("./vendor-edit.component.html");
@@ -15,11 +15,11 @@ export class VendorEditComponent extends HTMLElement {
     constructor(
         private _documentService: DocumentService = DocumentService.Instance,
         private _selectionCriteriaService: SelectionCriteriaService = SelectionCriteriaService.Instance,
-		private _vendorService: VendorService = VendorService.Instance,
-		private _router: Router = Router.Instance
-		) {
+        private _vendorService: VendorService = VendorService.Instance,
+        private _router: Router = Router.Instance
+        ) {
         super();
-		this.onSave = this.onSave.bind(this);
+        this.onSave = this.onSave.bind(this);
         this.onDelete = this.onDelete.bind(this);
         this.onTitleClick = this.onTitleClick.bind(this);
         this.onTabSelectedIndexChanged = this.onTabSelectedIndexChanged.bind(this);
@@ -37,11 +37,11 @@ export class VendorEditComponent extends HTMLElement {
     connectedCallback() {        
         this.innerHTML = `<style>${styles}</style> ${template}`;         
         this.tabsElement.setAttribute("custom-tab-index", `${this.customTabIndex}`);   
-		this._bind();
-		this._setEventListeners();
+        this._bind();
+        this._setEventListeners();
     }
     
-	private async _bind() {
+    private async _bind() {
         this._titleElement.textContent = this.vendorId ? "Edit Vendor": "Create Vendor";
 
         let promises: Array<Promise<any>> = [
@@ -73,35 +73,38 @@ export class VendorEditComponent extends HTMLElement {
 
         if (this.vendorId) {
             const vendor: Vendor = results[2];                
-			this._nameInputElement.value = vendor.name;  
+            this._nameInputElement.value = vendor.name;  
         } else {
             this._deleteButtonElement.style.display = "none";
-        } 	
-	}
+        }     
+    }
 
     public onTabSelectedIndexChanged(e) {
         this._router.navigate(["vendor", "edit", this.vendorId, "tab", e.detail.selectedIndex]);
     }
 
-	private _setEventListeners() {
+    private _setEventListeners() {
         this._saveButtonElement.addEventListener("click", this.onSave);
-		this._deleteButtonElement.addEventListener("click", this.onDelete);
+        this._deleteButtonElement.addEventListener("click", this.onDelete);
         this._titleElement.addEventListener("click", this.onTitleClick);
         this.addEventListener(tabsEvents.SELECTED_INDEX_CHANGED, this.onTabSelectedIndexChanged);
         this.addEventListener(vendorActions.ADD_OR_UPDATE_VENDOR_DOCUMENT, this.onAddOrUpdateVendorDocument);
         this.addEventListener(vendorActions.ADD_OR_UPDATE_VENDOR_SELECTION_CRITERIA, this.onAddOrUpdateVendorSelectionCriteria);
     }
 
-    public onAddOrUpdateVendorDocument() {
-
+    public async onAddOrUpdateVendorDocument(e: VendorDocumentAddOrUpdateEvent) {
+        addOrUpdate({ items: this.vendor.vendorSelectionCriterion, item: e.detail.vendorSelectionCriteria });
+        await this._vendorService.add(this.vendor);
     }
 
-    public onAddOrUpdateVendorSelectionCriteria() {
-
+    public async onAddOrUpdateVendorSelectionCriteria(e: VendorSelectionCriteriaAddOrUpdateEvent) {
+        addOrUpdate({ items: this.vendor.vendorDocuments, item: e.detail.vendorDocument });
+        await this._vendorService.add(this.vendor);
     }
+
     private disconnectedCallback() {
         this._saveButtonElement.removeEventListener("click", this.onSave);
-		this._deleteButtonElement.removeEventListener("click", this.onDelete);
+        this._deleteButtonElement.removeEventListener("click", this.onDelete);
         this._titleElement.removeEventListener("click", this.onTitleClick);
     }
 
@@ -112,15 +115,15 @@ export class VendorEditComponent extends HTMLElement {
         } as Vendor;
         
         await this._vendorService.add(vendor);
-		this._router.navigate(["vendor","list"]);
+        this._router.navigate(["vendor","list"]);
     }
 
     public async onDelete() {        
         await this._vendorService.remove({ id: this.vendorId });
-		this._router.navigate(["vendor","list"]);
+        this._router.navigate(["vendor","list"]);
     }
 
-	public onTitleClick() {
+    public onTitleClick() {
         this._router.navigate(["vendor", "list"]);
     }
 
@@ -136,10 +139,11 @@ export class VendorEditComponent extends HTMLElement {
     }
 
     public vendorId: number;
+    public vendor: Vendor;
     public customTabIndex;
 
     public get tabsElement(): HTMLElement { return this.querySelector("ce-tabs") as HTMLElement; }
-	private get _titleElement(): HTMLElement { return this.querySelector("h2") as HTMLElement; }
+    private get _titleElement(): HTMLElement { return this.querySelector("h2") as HTMLElement; }
     private get _saveButtonElement(): HTMLElement { return this.querySelector(".save-button") as HTMLElement };
     private get _deleteButtonElement(): HTMLElement { return this.querySelector(".delete-button") as HTMLElement };
     private get _nameInputElement(): HTMLInputElement { return this.querySelector(".vendor-name") as HTMLInputElement; }
