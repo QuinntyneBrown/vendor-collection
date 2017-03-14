@@ -2,6 +2,8 @@ import { VendorDocument } from "./vendor-document.model";
 import { EditorComponent } from "../shared";
 import { Router } from "../router";
 import { Document } from "../documents";
+import { VendorDocumentAddOrUpdateEvent } from "./vendor.actions";
+
 
 const template = require("./vendor-document-edit.component.html");
 const styles = require("./vendor-document-edit.component.scss");
@@ -48,7 +50,13 @@ export class VendorDocumentEditComponent extends HTMLElement {
     }
 
     public onAddOrUpdateClick() {
-        alert("?");
+        const vendorDocument = {
+            completionDate: this._completionDateElement.value,
+            document: this.document,
+            id:this.vendorDocument.id
+        } as VendorDocument;
+
+        this.dispatchEvent(new VendorDocumentAddOrUpdateEvent(vendorDocument));
     }
 
     attributeChangedCallback(name, oldValue, newValue) {

@@ -5,6 +5,7 @@ import { Router } from "../router";
 import { SelectionCriteriaService, SelectionCriteria } from "../selection-criterion";
 import { DocumentService, Document } from "../documents";
 import { createElement } from "../utilities";
+import { vendorActions } from "./vendor.actions";
 
 
 const template = require("./vendor-edit.component.html");
@@ -22,6 +23,8 @@ export class VendorEditComponent extends HTMLElement {
         this.onDelete = this.onDelete.bind(this);
         this.onTitleClick = this.onTitleClick.bind(this);
         this.onTabSelectedIndexChanged = this.onTabSelectedIndexChanged.bind(this);
+        this.onAddOrUpdateVendorDocument = this.onAddOrUpdateVendorDocument.bind(this);
+        this.onAddOrUpdateVendorSelectionCriteria = this.onAddOrUpdateVendorSelectionCriteria.bind(this);
     }
 
     static get observedAttributes() {
@@ -85,8 +88,17 @@ export class VendorEditComponent extends HTMLElement {
 		this._deleteButtonElement.addEventListener("click", this.onDelete);
         this._titleElement.addEventListener("click", this.onTitleClick);
         this.addEventListener(tabsEvents.SELECTED_INDEX_CHANGED, this.onTabSelectedIndexChanged);
+        this.addEventListener(vendorActions.ADD_OR_UPDATE_VENDOR_DOCUMENT, this.onAddOrUpdateVendorDocument);
+        this.addEventListener(vendorActions.ADD_OR_UPDATE_VENDOR_SELECTION_CRITERIA, this.onAddOrUpdateVendorSelectionCriteria);
     }
 
+    public onAddOrUpdateVendorDocument() {
+
+    }
+
+    public onAddOrUpdateVendorSelectionCriteria() {
+
+    }
     private disconnectedCallback() {
         this._saveButtonElement.removeEventListener("click", this.onSave);
 		this._deleteButtonElement.removeEventListener("click", this.onDelete);
