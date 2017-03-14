@@ -209,6 +209,42 @@
     <Content Include="src\app\app.component.scss">
       <DependentUpon>app.component.ts</DependentUpon>
     </Content>
+    <Content Include="src\app\contacts\contact-edit-embed.component.html">
+      <DependentUpon>contact-edit-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\contacts\contact-edit-embed.component.scss">
+      <DependentUpon>contact-edit-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\contacts\contact-edit.component.html">
+      <DependentUpon>contact-edit.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\contacts\contact-edit.component.scss">
+      <DependentUpon>contact-edit.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\contacts\contact-item-embed.component.html">
+      <DependentUpon>contact-item-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\contacts\contact-item-embed.component.scss">
+      <DependentUpon>contact-item-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\contacts\contact-item.component.html">
+      <DependentUpon>contact-item.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\contacts\contact-item.component.scss">
+      <DependentUpon>contact-item.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\contacts\contact-list-embed.component.html">
+      <DependentUpon>contact-list-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\contacts\contact-list-embed.component.scss">
+      <DependentUpon>contact-list-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\contacts\contact-list.component.html">
+      <DependentUpon>contact-list.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\contacts\contact-list.component.scss">
+      <DependentUpon>contact-list.component.ts</DependentUpon>
+    </Content>
     <Content Include="src\app\documents\document-edit.component.html">
       <DependentUpon>document-edit.component.ts</DependentUpon>
     </Content>
@@ -372,12 +408,6 @@
     <Content Include="src\styles\base\entity-list.scss" />
     <Content Include="src\styles\base\select.scss" />
     <Content Include="src\styles\base\view-card.scss" />
-    <Content Include="src\app\contacts\contact-list.component.scss" />
-    <Content Include="src\app\contacts\contact-list.component.html" />
-    <Content Include="src\app\contacts\contact-edit.component.scss" />
-    <Content Include="src\app\contacts\contact-edit.component.html" />
-    <Content Include="src\app\contacts\contact-item.component.scss" />
-    <Content Include="src\app\contacts\contact-item.component.html" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.config" />
@@ -539,10 +569,13 @@
     <TypeScriptCompile Include="src\app\contacts\contact.service.ts" />
     <TypeScriptCompile Include="src\app\contacts\index.ts" />
     <TypeScriptCompile Include="src\app\contacts\contact.model.ts" />
+    <TypeScriptCompile Include="src\app\contacts\contact.actions.ts" />
+    <TypeScriptCompile Include="src\app\contacts\contact-edit-embed.component.ts" />
+    <TypeScriptCompile Include="src\app\contacts\contact-list-embed.component.ts" />
+    <TypeScriptCompile Include="src\app\contacts\contact-item-embed.component.ts" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
-    <Folder Include="src\app\contacts\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\VendorCollection\VendorCollection.csproj">

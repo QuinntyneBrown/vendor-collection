@@ -16,13 +16,11 @@ namespace VendorCollection.Data.Model
         [ForeignKey("Vendor")]
         public int? VendorId { get; set; }
 
-        [Index("NameIndex", IsUnique = false)]
-        [Column(TypeName = "VARCHAR")]
-        public string Name { get; set; }
-
         public string Firstname { get; set; }
 
         public string Lastname { get; set; }
+
+        public string Title { get; set; }
 
         public string Email { get; set; }
 

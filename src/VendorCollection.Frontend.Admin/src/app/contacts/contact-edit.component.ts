@@ -32,7 +32,7 @@ export class ContactEditComponent extends HTMLElement {
 
         if (this.contactId) {
             const contact: Contact = await this._contactService.getById(this.contactId);                
-			this._nameInputElement.value = contact.name;  
+			this._firstnameInputElement.value = contact.firstname;  
         } else {
             this._deleteButtonElement.style.display = "none";
         } 	
@@ -53,8 +53,8 @@ export class ContactEditComponent extends HTMLElement {
     public async onSave() {
         const contact = {
             id: this.contactId,
-            name: this._nameInputElement.value
-        } as Contact;
+            name: this._firstnameInputElement.value
+        } as any;
         
         await this._contactService.add(contact);
 		this._router.navigate(["contact","list"]);
@@ -82,7 +82,7 @@ export class ContactEditComponent extends HTMLElement {
 	private get _titleElement(): HTMLElement { return this.querySelector("h2") as HTMLElement; }
     private get _saveButtonElement(): HTMLElement { return this.querySelector(".save-button") as HTMLElement };
     private get _deleteButtonElement(): HTMLElement { return this.querySelector(".delete-button") as HTMLElement };
-    private get _nameInputElement(): HTMLInputElement { return this.querySelector(".contact-name") as HTMLInputElement;}
+    private get _firstnameInputElement(): HTMLInputElement { return this.querySelector(".contact-name") as HTMLInputElement;}
 }
 
 customElements.define(`ce-contact-edit`,ContactEditComponent);

@@ -1,15 +1,10 @@
 import { Contact } from "./contact.model";
-import { ContactService } from "./contact.service";
-import { EditorComponent } from "../shared";
-import { Router } from "../router";
 
-const template = require("./contact-item.component.html");
-const styles = require("./contact-item.component.scss");
+const template = require("./contact-item-embed.component.html");
+const styles = require("./contact-item-embed.component.scss");
 
-export class ContactItemComponent extends HTMLElement {
-    constructor(
-        private _contactService: ContactService = ContactService.Instance,
-        private _router: Router = Router.Instance) {
+export class ContactItemEmbedComponent extends HTMLElement {
+    constructor() {
         super();
 
 		this._onDeleteClick = this._onDeleteClick.bind(this);
@@ -44,16 +39,15 @@ export class ContactItemComponent extends HTMLElement {
     }
 
     private async _onDeleteClick(e:Event) {
-        await this._contactService.remove({ id: this.entity.id });		
-		this.parentNode.removeChild(this);
+
     }
 
     private _onEditClick() {
-        this._router.navigate(["contact", "edit", this.entity.id]);
+
     }
 
     private _onViewClick() {
-        this._router.navigate(["contact","view",this.entity.id]);
+
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
@@ -71,4 +65,4 @@ export class ContactItemComponent extends HTMLElement {
     public entity: Contact;
 }
 
-customElements.define(`ce-contact-item`,ContactItemComponent);
+customElements.define(`ce-contact-item-embed`,ContactItemEmbedComponent);

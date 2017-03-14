@@ -32,7 +32,16 @@ namespace VendorCollection.Features.Contacts
                 var entity = await _context.Contacts
                     .SingleOrDefaultAsync(x => x.Id == request.Contact.Id && x.TenantId == request.TenantId);
                 if (entity == null) _context.Contacts.Add(entity = new Contact());
-                entity.Name = request.Contact.Name;
+
+                entity.Firstname = request.Contact.Firstname;
+                entity.Lastname = request.Contact.Lastname;
+                entity.Title = request.Contact.Title;
+                entity.Email = request.Contact.Email;
+                entity.Twitter = request.Contact.Twitter;
+                entity.LinkedIn = request.Contact.LinkedIn;
+                entity.Mobile = request.Contact.Mobile;
+                entity.PhoneNumber = request.Contact.PhoneNumber;
+                entity.VendorId = request.Contact.VendorId;
 				entity.TenantId = request.TenantId;
 
                 await _context.SaveChangesAsync();
