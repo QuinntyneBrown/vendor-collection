@@ -12,6 +12,8 @@ export class AppRouterOutletComponent extends RouterOutlet {
             { path: "/vendor/edit/:vendorId", name: "vendor-edit", authRequired: true },
             { path: "/vendor/create", name: "vendor-edit", authRequired: true },
             { path: "/vendor/list", name: "vendor-list", authRequired: true },
+            { path: "/vendor/edit/:vendorId/tab/:tabIndex", name: "vendor-edit", authRequired: true },
+            { path: "/vendor/create/tab/:tabIndex", name: "vendor-edit", authRequired: true },
 
             { path: "/selection-criteria/edit/:selectionCriteriaId", name: "selection-criteria-edit", authRequired: true },
             { path: "/selection-criteria/create", name: "selection-criteria-edit", authRequired: true },
