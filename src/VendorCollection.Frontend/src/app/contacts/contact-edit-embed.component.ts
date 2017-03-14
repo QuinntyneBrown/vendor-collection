@@ -84,10 +84,17 @@ export class ContactEditEmbedComponent extends HTMLElement {
 
     public contactId: any;
     
-	private get _titleElement(): HTMLElement { return this.querySelector("h2") as HTMLElement; }
+    private get _titleElement(): HTMLElement { return this.querySelector("h2") as HTMLElement; }
     private get _saveButtonElement(): HTMLElement { return this.querySelector(".save-button") as HTMLElement };
     private get _deleteButtonElement(): HTMLElement { return this.querySelector(".delete-button") as HTMLElement };
-    private get _firtnameInputElement(): HTMLInputElement { return this.querySelector(".contact-name") as HTMLInputElement;}
+
+    private get _firtnameInputElement(): HTMLInputElement { return this.querySelector(".contact-firstname") as HTMLInputElement; }
+    private get _lastnameInputElement(): HTMLInputElement { return this.querySelector(".contact-lastname") as HTMLInputElement; }
+    private get _titleInputElement(): HTMLInputElement { return this.querySelector(".contact-title") as HTMLInputElement; }
+    private get _twitterInputElement(): HTMLInputElement { return this.querySelector(".contact-twitter") as HTMLInputElement; }
+    private get _linkedinInputElement(): HTMLInputElement { return this.querySelector(".contact-linkedin") as HTMLInputElement; }
+    private get _phoneNumberInputElement(): HTMLInputElement { return this.querySelector(".contact-phone-nubmer") as HTMLInputElement; }
+    private get _mobileInputElement(): HTMLInputElement { return this.querySelector(".contact-mobile") as HTMLInputElement; }
 }
 
 customElements.define(`ce-contact-edit-embed`,ContactEditEmbedComponent);
