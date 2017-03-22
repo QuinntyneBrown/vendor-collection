@@ -197,6 +197,7 @@
     <Compile Include="Features\Core\RateLimit.cs" />
     <Compile Include="Features\Core\StringExtensions.cs" />
     <Compile Include="Features\Core\WebApiUnityActionFilterProvider.cs" />
+    <Compile Include="Features\Shared\HealthController.cs" />
     <Compile Include="Features\Users\AddOrUpdateUserCommand.cs" />
     <Compile Include="Features\Users\Constants.cs" />
     <Compile Include="Features\Users\GetUserByIdQuery.cs" />
@@ -257,7 +258,6 @@
     <Compile Include="Features\Contacts\ContactController.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Features\Contacts\" />
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>

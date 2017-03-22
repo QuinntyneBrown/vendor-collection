@@ -2,9 +2,7 @@ using MediatR;
 using VendorCollection.Data;
 using VendorCollection.Data.Model;
 using VendorCollection.Features.Core;
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using System.Linq;
 using System.Data.Entity;
 
 namespace VendorCollection.Features.Contacts

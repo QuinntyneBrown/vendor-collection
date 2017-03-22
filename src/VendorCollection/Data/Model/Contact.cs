@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using VendorCollection.Data.Helpers;
 using System.ComponentModel.DataAnnotations.Schema;
 

@@ -44,7 +44,8 @@ namespace VendorCollection.Features.Vendors
         [ResponseType(typeof(GetVendorsResponse))]
         public async Task<IHttpActionResult> Get()
         {
-            var request = new GetVendorsRequest() { TenantId = (await _userManager.GetUserAsync(User)).TenantId };
+            //var request = new GetVendorsRequest() { TenantId = (await _userManager.GetUserAsync(User)).TenantId };
+            var request = new GetVendorsRequest() { TenantId = 1 };
             return Ok(await _mediator.Send(request));
         }
 

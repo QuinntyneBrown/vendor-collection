@@ -74,6 +74,8 @@ export class VendorEditComponent extends HTMLElement {
         if (this.vendorId) {
             const vendor: Vendor = results[2];                
             this._nameInputElement.value = vendor.name;  
+            this._titleElement.textContent = `Edit Vendor: ${vendor.name}`;            
+            this._contactsMasterDetailEmbedElement.setAttribute("contacts", JSON.stringify(vendor.contacts));
         } else {
             this._deleteButtonElement.style.display = "none";
         }     
@@ -149,6 +151,8 @@ export class VendorEditComponent extends HTMLElement {
     private get _nameInputElement(): HTMLInputElement { return this.querySelector(".vendor-name") as HTMLInputElement; }
     private get _documentsTabElement(): HTMLElement { return this.querySelector(".documents-tab") as HTMLElement; }
     private get _evaluationTabElement(): HTMLElement { return this.querySelector(".evaluation-tab") as HTMLElement; }
+
+    private get _contactsMasterDetailEmbedElement(): HTMLElement { return this.querySelector("ce-contact-master-detail-embed") as HTMLElement; }
 }
 
 customElements.define(`ce-vendor-edit`,VendorEditComponent);

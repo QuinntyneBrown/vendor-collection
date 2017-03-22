@@ -1,5 +1,6 @@
 export class Contact { 
     public id: any;
+    public name: string;
     public vendorId:any;
     public firstname:any;
     public lastname:any;

@@ -12,7 +12,7 @@ export class VendorService {
     }
 
     public get(): Promise<Array<Vendor>> {
-        return this._fetch({ url: "/api/vendor/get", authRequired: true }).then((results:string) => {
+        return this._fetch({ url: "/api/vendor/get", authRequired: true }).then((results: string) => {
             return (JSON.parse(results) as { vendors: Array<Vendor> }).vendors;
         });
     }

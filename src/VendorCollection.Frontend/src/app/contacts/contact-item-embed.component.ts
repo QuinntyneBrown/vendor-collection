@@ -1,5 +1,6 @@
 import { Contact } from "./contact.model";
-
+import {  ContactDelete, ContactEdit, ContactAdd } from "./contact.actions";
+	
 const template = require("./contact-item-embed.component.html");
 const styles = require("./contact-item-embed.component.scss");
 
@@ -7,7 +8,7 @@ export class ContactItemEmbedComponent extends HTMLElement {
     constructor() {
         super();
 
-		this._onDeleteClick = this._onDeleteClick.bind(this);
+        this._onDeleteClick = this._onDeleteClick.bind(this);
         this._onEditClick = this._onEditClick.bind(this);
         this._onViewClick = this._onViewClick.bind(this);
     }
@@ -39,11 +40,11 @@ export class ContactItemEmbedComponent extends HTMLElement {
     }
 
     private async _onDeleteClick(e:Event) {
-
+        this.dispatchEvent(new ContactDelete(this.entity)); 
     }
 
     private _onEditClick() {
-
+        this.dispatchEvent(new ContactEdit(this.entity));
     }
 
     private _onViewClick() {
@@ -54,7 +55,7 @@ export class ContactItemEmbedComponent extends HTMLElement {
         switch (name) {
             case "entity":
                 this.entity = JSON.parse(newValue);
-				break;
+                break;
         }        
     }
 

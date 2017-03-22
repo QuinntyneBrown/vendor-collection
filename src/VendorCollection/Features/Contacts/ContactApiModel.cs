@@ -1,4 +1,5 @@
 using VendorCollection.Data.Model;
+using VendorCollection.Features.Vendors;
 
 namespace VendorCollection.Features.Contacts
 {
@@ -25,6 +26,8 @@ namespace VendorCollection.Features.Contacts
         public string Mobile { get; set; }
 
         public string PhoneNumber { get; set; }
+
+        public VendorApiModel Vendor { get; set; }
         
 
         public static TModel FromContact<TModel>(Contact contact) where
@@ -41,6 +44,8 @@ namespace VendorCollection.Features.Contacts
             model.LinkedIn = contact.LinkedIn;
             model.Mobile = contact.Mobile;
             model.PhoneNumber = contact.PhoneNumber;
+            //model.Vendor = contact.Vendor == null ? null : VendorApiModel.FromVendor(contact.Vendor);
+
             return model;
         }
 

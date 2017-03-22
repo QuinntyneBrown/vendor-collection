@@ -33,6 +33,7 @@ namespace VendorCollection.Features.SelectionCriterion
                     .SingleOrDefaultAsync(x => x.Id == request.SelectionCriteria.Id && x.TenantId == request.TenantId);
                 if (entity == null) _context.SelectionCriterion.Add(entity = new SelectionCriteria());
                 entity.Name = request.SelectionCriteria.Name;
+                entity.Description = request.SelectionCriteria.Description;
 				entity.TenantId = request.TenantId;
 
                 await _context.SaveChangesAsync();

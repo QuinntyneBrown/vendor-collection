@@ -36,6 +36,8 @@ export class ContactListEmbedComponent extends HTMLElement {
         switch (name) {
             case "contacts":
                 this.contacts = JSON.parse(newValue);
+                if (this.parentElement)
+                    this.connectedCallback();
                 break;
         }
     }

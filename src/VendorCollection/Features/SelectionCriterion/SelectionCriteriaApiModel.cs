@@ -7,6 +7,7 @@ namespace VendorCollection.Features.SelectionCriterion
         public int Id { get; set; }
         public int? TenantId { get; set; }
         public string Name { get; set; }
+        public string Description { get; set; }
 
         public static TModel FromSelectionCriteria<TModel>(SelectionCriteria selectionCriteria) where
             TModel : SelectionCriteriaApiModel, new()
@@ -15,11 +16,11 @@ namespace VendorCollection.Features.SelectionCriterion
             model.Id = selectionCriteria.Id;
             model.TenantId = selectionCriteria.TenantId;
             model.Name = selectionCriteria.Name;
+            model.Description = selectionCriteria.Description;
             return model;
         }
 
         public static SelectionCriteriaApiModel FromSelectionCriteria(SelectionCriteria selectionCriteria)
             => FromSelectionCriteria<SelectionCriteriaApiModel>(selectionCriteria);
-
     }
 }

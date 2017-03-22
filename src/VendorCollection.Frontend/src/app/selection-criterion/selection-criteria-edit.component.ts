@@ -3,6 +3,7 @@ import { SelectionCriteriaService } from "./selection-criteria.service";
 import { EditorComponent } from "../shared";
 import { Router } from "../router";
 
+
 const template = require("./selection-criteria-edit.component.html");
 const styles = require("./selection-criteria-edit.component.scss");
 
@@ -30,9 +31,12 @@ export class SelectionCriteriaEditComponent extends HTMLElement {
 	private async _bind() {
         this._titleElement.textContent = this.selectionCriteriaId ? "Edit Selection Criteria": "Create Selection Criteria";
 
+        this.htmlDescriptionEditor = new EditorComponent(this._descriptionInputElement);
+
         if (this.selectionCriteriaId) {
             const selectionCriteria: SelectionCriteria = await this._selectionCriterionervice.getById(this.selectionCriteriaId);                
-			this._nameInputElement.value = selectionCriteria.name;  
+            this._nameInputElement.value = selectionCriteria.name;            
+            this.htmlDescriptionEditor.setHTML(selectionCriteria.description);  
         } else {
             this._deleteButtonElement.style.display = "none";
         } 	
@@ -53,7 +57,8 @@ export class SelectionCriteriaEditComponent extends HTMLElement {
     public async onSave() {
         const selectionCriteria = {
             id: this.selectionCriteriaId,
-            name: this._nameInputElement.value
+            name: this._nameInputElement.value,
+            description: this.htmlDescriptionEditor.text
         } as SelectionCriteria;
         
         await this._selectionCriterionervice.add(selectionCriteria);
@@ -77,12 +82,15 @@ export class SelectionCriteriaEditComponent extends HTMLElement {
         }        
     }
 
+    public htmlDescriptionEditor: EditorComponent;
+
     public selectionCriteriaId: number;
     
 	private get _titleElement(): HTMLElement { return this.querySelector("h2") as HTMLElement; }
     private get _saveButtonElement(): HTMLElement { return this.querySelector(".save-button") as HTMLElement };
     private get _deleteButtonElement(): HTMLElement { return this.querySelector(".delete-button") as HTMLElement };
-    private get _nameInputElement(): HTMLInputElement { return this.querySelector(".selection-criteria-name") as HTMLInputElement;}
+    private get _nameInputElement(): HTMLInputElement { return this.querySelector(".selection-criteria-name") as HTMLInputElement; }
+    private get _descriptionInputElement(): HTMLInputElement { return this.querySelector(".selection-criteria-description") as HTMLInputElement; }
 }
 
 customElements.define(`ce-selection-criteria-edit`,SelectionCriteriaEditComponent);

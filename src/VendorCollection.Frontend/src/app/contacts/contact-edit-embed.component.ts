@@ -10,6 +10,7 @@ export class ContactEditEmbedComponent extends HTMLElement {
         super();
 		this.onSave = this.onSave.bind(this);
         this.onDelete = this.onDelete.bind(this);
+        this.onCreate = this.onCreate.bind(this);
     }
 
     static get observedAttributes() {
@@ -29,7 +30,7 @@ export class ContactEditEmbedComponent extends HTMLElement {
         this._titleElement.textContent = this.contact ? "Edit Contact": "Create Contact";
 
         if (this.contact) {                
-			this._firtnameInputElement.value = this.contact.firstname;  
+			this._firstnameInputElement.value = this.contact.firstname;  
         } else {
             this._deleteButtonElement.style.display = "none";
         } 	
@@ -37,21 +38,33 @@ export class ContactEditEmbedComponent extends HTMLElement {
 
 	private _setEventListeners() {
         this._saveButtonElement.addEventListener("click", this.onSave);
-		this._deleteButtonElement.addEventListener("click", this.onDelete);
+        this._deleteButtonElement.addEventListener("click", this.onDelete);
+        this._createElement.addEventListener("click", this.onCreate);
     }
 
     private disconnectedCallback() {
         this._saveButtonElement.removeEventListener("click", this.onSave);
-		this._deleteButtonElement.removeEventListener("click", this.onDelete);
+        this._deleteButtonElement.removeEventListener("click", this.onDelete);
+        this._createElement.removeEventListener("click", this.onCreate);
     }
 
-    public onSave() {
-        //const contact = {
-        //    id: this.contact != null ? this.contact.id : null,
-        //    name: this._nameInputElement.value
-        //} as Contact;
-		
-		//this.dispatchEvent(new ContactSaveEvent(contact)); 	       
+    public onCreate() {
+        this.dispatchEvent(new ContactEdit(new Contact()));
+    }
+
+    public onSave() {	
+        const contact = {
+            id: this.contactId,
+            firstname: this._firstnameInputElement.value,
+            lastname: this._lastnameInputElement.value,
+            title: this._titleInputElement.value,
+            twitter: this._twitterInputElement.value,
+            linkedIn: this._linkedinInputElement.value,
+            phoneNumber: this._phoneNumberInputElement.value,
+            mobile: this._mobileInputElement.value
+        } as Contact;
+         	
+        this.dispatchEvent(new ContactAdd(contact)); 	       
     }
 
     public onDelete() {        
@@ -60,7 +73,7 @@ export class ContactEditEmbedComponent extends HTMLElement {
         //    name: this._nameInputElement.value
         //} as Contact;
 
-        //this.dispatchEvent(new ContactDeleteEvent(contact)); 		
+        this.dispatchEvent(new ContactDelete(this.contact)); 		
     }
 
 	public contact: Contact;
@@ -74,7 +87,11 @@ export class ContactEditEmbedComponent extends HTMLElement {
                 this.contact = JSON.parse(newValue);
                 if (this.parentNode) {
                     this.contactId = this.contact.id;
-                    this._firtnameInputElement.value = this.contact.firstname != undefined ? this.contact.firstname : "";
+                    this._firstnameInputElement.value = this.contact.firstname != undefined ? this.contact.firstname : "";                    
+                    this._lastnameInputElement.value = this.contact.lastname != undefined ? this.contact.lastname: "";
+                    this._titleInputElement.value = this.contact.title != undefined ? this.contact.title : "";
+                    this._phoneNumberInputElement.value = this.contact.phoneNumber != undefined ? this.contact.phoneNumber : "";
+                    this._phoneNumberInputElement.value = this.contact.mobile != undefined ? this.contact.mobile : "";
                     this._titleElement.textContent = this.contactId ? "Edit contact" : "Create contact";
                 }
                 break;
@@ -87,8 +104,8 @@ export class ContactEditEmbedComponent extends HTMLElement {
     private get _titleElement(): HTMLElement { return this.querySelector("h2") as HTMLElement; }
     private get _saveButtonElement(): HTMLElement { return this.querySelector(".save-button") as HTMLElement };
     private get _deleteButtonElement(): HTMLElement { return this.querySelector(".delete-button") as HTMLElement };
-
-    private get _firtnameInputElement(): HTMLInputElement { return this.querySelector(".contact-firstname") as HTMLInputElement; }
+    private get _createElement(): HTMLElement { return this.querySelector(".contact-create") as HTMLElement; }
+    private get _firstnameInputElement(): HTMLInputElement { return this.querySelector(".contact-firstname") as HTMLInputElement; }
     private get _lastnameInputElement(): HTMLInputElement { return this.querySelector(".contact-lastname") as HTMLInputElement; }
     private get _titleInputElement(): HTMLInputElement { return this.querySelector(".contact-title") as HTMLInputElement; }
     private get _twitterInputElement(): HTMLInputElement { return this.querySelector(".contact-twitter") as HTMLInputElement; }

@@ -1,0 +1,19 @@
+@import "../../styles/base/_all";
+
+ce-contact-master-detail-embed {
+    display:block;
+
+    ce-contact-edit-embed,
+    ce-contact-list-embed {
+        float:left;
+        display:inline-block;
+        position:relative;
+        width:50%;
+    }
+}
+
+ce-contact-master-detail-embed::after {
+    clear:both;
+    display:block;
+    content:" ";
+}

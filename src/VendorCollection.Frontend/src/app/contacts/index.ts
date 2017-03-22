@@ -4,6 +4,7 @@ export * from "./contact-item-embed.component";
 export * from "./contact-item.component";
 export * from "./contact-list-embed.component";
 export * from "./contact-list.component";
+export * from "./contact-master-detail-embed.component";
 export * from "./contact.actions";
 export * from "./contact.model";
 export * from "./contact.service";

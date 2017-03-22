@@ -10,7 +10,6 @@ export abstract class RouterOutlet {
     }
 
     public connectedCallback() {
-        this.use(new RouteReloadMiddleware());
         this._router.addEventListener(this._onRouteChanged.bind(this));       
     }
 
