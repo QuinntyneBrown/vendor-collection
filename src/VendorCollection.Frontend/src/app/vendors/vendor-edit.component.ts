@@ -6,7 +6,7 @@ import { SelectionCriteriaService, SelectionCriteria } from "../selection-criter
 import { DocumentService, Document } from "../documents";
 import { createElement, addOrUpdate } from "../utilities";
 import { vendorActions, VendorDocumentAddOrUpdateEvent, VendorSelectionCriteriaAddOrUpdateEvent } from "./vendor.actions";
-
+import { contactActions } from "../contacts";
 
 const template = require("./vendor-edit.component.html");
 const styles = require("./vendor-edit.component.scss");
@@ -21,6 +21,7 @@ export class VendorEditComponent extends HTMLElement {
         super();
         this.onSave = this.onSave.bind(this);
         this.onDelete = this.onDelete.bind(this);
+        this.onContactsChanged = this.onContactsChanged.bind(this);
         this.onTitleClick = this.onTitleClick.bind(this);
         this.onTabSelectedIndexChanged = this.onTabSelectedIndexChanged.bind(this);
         this.onAddOrUpdateVendorDocument = this.onAddOrUpdateVendorDocument.bind(this);
@@ -89,9 +90,14 @@ export class VendorEditComponent extends HTMLElement {
         this._saveButtonElement.addEventListener("click", this.onSave);
         this._deleteButtonElement.addEventListener("click", this.onDelete);
         this._titleElement.addEventListener("click", this.onTitleClick);
+        this._contactsMasterDetailEmbedElement.addEventListener(contactActions.CONTACTS_CHANGED, this.onContactsChanged);
         this.addEventListener(tabsEvents.SELECTED_INDEX_CHANGED, this.onTabSelectedIndexChanged);
         this.addEventListener(vendorActions.ADD_OR_UPDATE_VENDOR_DOCUMENT, this.onAddOrUpdateVendorDocument);
         this.addEventListener(vendorActions.ADD_OR_UPDATE_VENDOR_SELECTION_CRITERIA, this.onAddOrUpdateVendorSelectionCriteria);
+    }
+
+    public onContactsChanged(e) {
+        this.vendor.contacts = e.detail.contacts;
     }
 
     public async onAddOrUpdateVendorDocument(e: VendorDocumentAddOrUpdateEvent) {
@@ -108,6 +114,7 @@ export class VendorEditComponent extends HTMLElement {
         this._saveButtonElement.removeEventListener("click", this.onSave);
         this._deleteButtonElement.removeEventListener("click", this.onDelete);
         this._titleElement.removeEventListener("click", this.onTitleClick);
+        this._contactsMasterDetailEmbedElement.removeEventListener(contactActions.CONTACTS_CHANGED, this.onContactsChanged);
     }
 
     public async onSave() {

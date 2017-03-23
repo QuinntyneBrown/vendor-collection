@@ -4,6 +4,7 @@ export const contactActions = {
     ADD: "[Contact] Add",
     EDIT: "[Contact] Edit",
     DELETE: "[Contact] Delete",
+    CONTACTS_CHANGED: "[Contact] Contacts Changed"
 };
 
 export class ContactEvent extends CustomEvent {
@@ -33,3 +34,15 @@ export class ContactDelete extends ContactEvent {
         super(contactActions.DELETE, contact);
     }
 }
+
+
+export class ContactsChanged extends CustomEvent {
+    constructor(contacts: Array<Contact>) {
+        super(contactActions.CONTACTS_CHANGED, {
+            bubbles: true,
+            cancelable: true,
+            detail: { contacts }
+        });
+    }
+}
+

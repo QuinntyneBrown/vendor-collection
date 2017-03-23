@@ -1,5 +1,6 @@
-import { ContactAdd, ContactDelete, ContactEdit, contactActions } from "./contact.actions";
+import { ContactAdd, ContactDelete, ContactEdit, contactActions, ContactsChanged } from "./contact.actions";
 import { Contact } from "./contact.model";
+import { Observable } from "rxjs";
 
 const template = require("./contact-master-detail-embed.component.html");
 const styles = require("./contact-master-detail-embed.component.scss");
@@ -25,7 +26,7 @@ export class ContactMasterDetailEmbedComponent extends HTMLElement {
     }
 
     private async _bind() {
-        this.contactListElement.setAttribute("contacts", JSON.stringify(this.contacts));
+        this.contactListElement.setAttribute("contacts", JSON.stringify(this.contacts));        
     }
 
     private _setEventListeners() {
@@ -58,6 +59,7 @@ export class ContactMasterDetailEmbedComponent extends HTMLElement {
         
         this.contactListElement.setAttribute("contacts", JSON.stringify(this.contacts));
         this.contactEditElement.setAttribute("contact", JSON.stringify(new Contact()));
+        this.dispatchEvent(new ContactsChanged(this.contacts));
     }
 
     public onContactEdit(e) {
@@ -76,6 +78,7 @@ export class ContactMasterDetailEmbedComponent extends HTMLElement {
 
         this.contactListElement.setAttribute("contacts", JSON.stringify(this.contacts));
         this.contactEditElement.setAttribute("contact", JSON.stringify(new Contact()));
+        this.dispatchEvent(new ContactsChanged(this.contacts));
     }
 
     attributeChangedCallback (name, oldValue, newValue) {
@@ -93,6 +96,7 @@ export class ContactMasterDetailEmbedComponent extends HTMLElement {
     public get value(): Array<Contact> { return this.contacts; }
 
     private contacts: Array<Contact> = [];
+    public contacts$: Observable<Array<Contact>>;
     public contact: Contact = <Contact>{};
     public get contactEditElement(): HTMLElement { return this.querySelector("ce-contact-edit-embed") as HTMLElement; }
     public get contactListElement(): HTMLElement { return this.querySelector("ce-contact-list-embed") as HTMLElement; }
