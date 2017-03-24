@@ -30,10 +30,30 @@ namespace VendorCollection.Features.Vendors
             public async Task<AddOrUpdateVendorResponse> Handle(AddOrUpdateVendorRequest request)
             {
                 var entity = await _context.Vendors
+                    .Include(x=>x.Contacts)
                     .SingleOrDefaultAsync(x => x.Id == request.Vendor.Id && x.TenantId == request.TenantId);
+
                 if (entity == null) _context.Vendors.Add(entity = new Vendor());
+
                 entity.Name = request.Vendor.Name;
 				entity.TenantId = request.TenantId;
+
+                entity.Contacts.Clear();
+
+                foreach(var contact in request.Vendor.Contacts)
+                {
+                    var contactEntity = await _context.Contacts.FindAsync(contact.Id);
+
+                    if(contactEntity == null) { contactEntity = new Contact(); }                    
+                    contactEntity.VendorId = entity.Id;
+                    contactEntity.TenantId = request.TenantId;
+                    contactEntity.Email = contact.Email;
+                    contactEntity.Firstname = contact.Firstname;
+                    contactEntity.Lastname = contact.Lastname;
+                    contactEntity.PhoneNumber = contact.PhoneNumber;
+                    contactEntity.Email = contact.Email;
+                    entity.Contacts.Add(contactEntity);
+                }
 
                 await _context.SaveChangesAsync();
 

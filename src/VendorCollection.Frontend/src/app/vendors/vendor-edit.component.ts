@@ -73,10 +73,10 @@ export class VendorEditComponent extends HTMLElement {
         }
 
         if (this.vendorId) {
-            const vendor: Vendor = results[2];                
-            this._nameInputElement.value = vendor.name;  
-            this._titleElement.textContent = `Edit Vendor: ${vendor.name}`;            
-            this._contactsMasterDetailEmbedElement.setAttribute("contacts", JSON.stringify(vendor.contacts));
+            this.vendor = results[2];                
+            this._nameInputElement.value = this.vendor.name;  
+            this._titleElement.textContent = `Edit Vendor: ${this.vendor.name}`;            
+            this._contactsMasterDetailEmbedElement.setAttribute("contacts", JSON.stringify(this.vendor.contacts));
         } else {
             this._deleteButtonElement.style.display = "none";
         }     
@@ -120,7 +120,8 @@ export class VendorEditComponent extends HTMLElement {
     public async onSave() {
         const vendor = {
             id: this.vendorId,
-            name: this._nameInputElement.value
+            name: this._nameInputElement.value,
+            contacts: this.vendor.contacts
         } as Vendor;
         
         await this._vendorService.add(vendor);
@@ -150,7 +151,7 @@ export class VendorEditComponent extends HTMLElement {
     public vendorId: number;
     public vendor: Vendor;
     public customTabIndex;
-
+    
     public get tabsElement(): HTMLElement { return this.querySelector("ce-tabs") as HTMLElement; }
     private get _titleElement(): HTMLElement { return this.querySelector("h2") as HTMLElement; }
     private get _saveButtonElement(): HTMLElement { return this.querySelector(".save-button") as HTMLElement };

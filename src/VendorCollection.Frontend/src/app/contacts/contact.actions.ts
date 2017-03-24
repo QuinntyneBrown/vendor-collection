@@ -35,7 +35,6 @@ export class ContactDelete extends ContactEvent {
     }
 }
 
-
 export class ContactsChanged extends CustomEvent {
     constructor(contacts: Array<Contact>) {
         super(contactActions.CONTACTS_CHANGED, {
@@ -45,4 +44,3 @@ export class ContactsChanged extends CustomEvent {
         });
     }
 }
-

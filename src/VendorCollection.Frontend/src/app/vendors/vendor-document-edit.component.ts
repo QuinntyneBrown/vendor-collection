@@ -4,7 +4,6 @@ import { Router } from "../router";
 import { Document } from "../documents";
 import { VendorDocumentAddOrUpdateEvent } from "./vendor.actions";
 
-
 const template = require("./vendor-document-edit.component.html");
 const styles = require("./vendor-document-edit.component.scss");
 

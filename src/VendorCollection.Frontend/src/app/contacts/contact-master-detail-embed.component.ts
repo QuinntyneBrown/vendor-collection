@@ -66,7 +66,7 @@ export class ContactMasterDetailEmbedComponent extends HTMLElement {
         this.contactEditElement.setAttribute("contact", JSON.stringify(e.detail.contact));
     }
 
-    public onContactDelete(e) {
+    public onContactDelete(e) {        
         if (e.detail.contact.Id != null && e.detail.contact.Id != undefined) {
             this.contacts.splice(this.contacts.findIndex(o => o.id == e.detail.optionId), 1);
         } else {

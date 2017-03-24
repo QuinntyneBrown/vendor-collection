@@ -59,7 +59,7 @@ export class ContactEditEmbedComponent extends HTMLElement {
             lastname: this._lastnameInputElement.value,
             title: this._titleInputElement.value,
             twitter: this._twitterInputElement.value,
-            linkedIn: this._linkedinInputElement.value,
+            email: this._emailInputElement.value,
             phoneNumber: this._phoneNumberInputElement.value,
             mobile: this._mobileInputElement.value
         } as Contact;
@@ -91,7 +91,8 @@ export class ContactEditEmbedComponent extends HTMLElement {
                     this._lastnameInputElement.value = this.contact.lastname != undefined ? this.contact.lastname: "";
                     this._titleInputElement.value = this.contact.title != undefined ? this.contact.title : "";
                     this._phoneNumberInputElement.value = this.contact.phoneNumber != undefined ? this.contact.phoneNumber : "";
-                    this._phoneNumberInputElement.value = this.contact.mobile != undefined ? this.contact.mobile : "";
+                    //this._phoneNumberInputElement.value = this.contact.mobile != undefined ? this.contact.mobile : "";
+                    this._emailInputElement.value = this.contact.email != undefined ? this.contact.email : "";
                     this._titleElement.textContent = this.contactId ? "Edit contact" : "Create contact";
                 }
                 break;
@@ -110,8 +111,9 @@ export class ContactEditEmbedComponent extends HTMLElement {
     private get _titleInputElement(): HTMLInputElement { return this.querySelector(".contact-title") as HTMLInputElement; }
     private get _twitterInputElement(): HTMLInputElement { return this.querySelector(".contact-twitter") as HTMLInputElement; }
     private get _linkedinInputElement(): HTMLInputElement { return this.querySelector(".contact-linkedin") as HTMLInputElement; }
-    private get _phoneNumberInputElement(): HTMLInputElement { return this.querySelector(".contact-phone-nubmer") as HTMLInputElement; }
+    private get _phoneNumberInputElement(): HTMLInputElement { return this.querySelector(".contact-phone-number") as HTMLInputElement; }
     private get _mobileInputElement(): HTMLInputElement { return this.querySelector(".contact-mobile") as HTMLInputElement; }
+    private get _emailInputElement(): HTMLInputElement { return this.querySelector(".contact-email") as HTMLInputElement; }
 }
 
 customElements.define(`ce-contact-edit-embed`,ContactEditEmbedComponent);
